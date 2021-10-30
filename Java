@@ -1,0 +1,41 @@
+import java.util.Scanner;
+public class UTS2 {
+  public static void main (String[] args) {
+    Scanner s = new Scanner(System.in);
+        System.out.print("Masukkan Umur Customer = ");
+        int umur = s.nextInt();
+        System.out.print("Masukkan Berat Badan Customer = ");
+        int beratBadan = s.nextInt();
+        System.out.print("Masukkan Total belanja Customer = ");
+        int totalBelanja = s.nextInt();
+        int potongan = 0;
+        if(totalBelanja>50000 && umur >16) {
+            //kondisi true
+             int presentasePotongan = 0;
+            if (umur <=25) {
+             presentasePotongan = beratBadan / 10;
+            }else if(umur <=50) {
+             presentasePotongan = beratBadan / 5;
+            }else{
+             presentasePotongan = beratBadan / 2;
+            }
+             potongan = totalBelanja * presentasePotongan / 100;
+            System.out.println("Anda Mendapatkan Potongan " +
+                    "potongan " + presentasePotongan + "% " +
+                    "dari Rp "+ totalBelanja  +
+                    " Sebesar Rp " + potongan);
+        }else{
+            //kondisi else
+            System.out.println("Anda Belum Mendapatkan Promo");
+        }
+        int totalHarusBayar = totalBelanja - potongan;
+        System.out.println("\n-------------------");
+        System.out.println("Umur\t\t\t : " +umur + " Tahun");
+        System.out.println("Berat Badan\t\t : " +beratBadan + " Kg");
+        System.out.println("Total Belanja\t\t : Rp " +totalBelanja);
+        System.out.println("Potongan Promo\t\t : Rp " +potongan);
+        System.out.println("Total Harus Bayar\t : Rp " + totalHarusBayar);
+    }
+    
+}
+
